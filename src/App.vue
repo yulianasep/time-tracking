@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <RouterView />
+  <h1>Time Tracking</h1>
 </template>
 
 <style scoped>
