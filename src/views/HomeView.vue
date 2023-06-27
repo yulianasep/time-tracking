@@ -5,6 +5,10 @@ import CardReport from '../components/CardReport.vue'
 <template>
   <main>
     <UserProfile />
-    <CardReport title="Work" hours="32hrs" subtitle="Last Day - 36hrs" />
+    <div>
+      <CardReport title="Work" hours="32hrs" subtitle="Last Day - 36hrs" />
+    </div>
   </main>
 </template>
+
+<style scoped></style>
