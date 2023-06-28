@@ -1,30 +1,12 @@
-<script>
-export default {
-  props: {
-    backgroundTheme: {
-      type: String,
-      required: true
-    },
-
-    backgroundIcon: {
-      type: String,
-      required: true
-    },
-
-    title: {
-      type: String,
-      required: true
-    },
-    hours: {
-      type: String,
-      required: true
-    },
-    subtitle: {
-      type: String,
-      required: true
-    }
+<script setup>
+  defineProps( {
+    backgroundTheme: String,
+    backgroundIcon: String,
+    title: String,
+    hours: String,
+    subtitle: String,
   }
-}
+)
 </script>
 
 <template>

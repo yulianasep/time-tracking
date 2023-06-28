@@ -1,4 +1,6 @@
 <script>
+import { ref } from 'vue';
+
 export default {
   props: {
     name: {
@@ -8,7 +10,20 @@ export default {
     picture: {
       type: String,
       required: true
-    }
+    },
+  },
+  setup(props, context) {
+    const reportType = ref('');
+
+    const handleClick = (type) => {
+      reportType.value = type;
+      context.emit('report-click', type);
+    };
+
+    return {
+      reportType,
+      handleClick
+    };
   }
 }
 </script>
@@ -24,9 +39,9 @@ export default {
     </section>
     <section class="type-report-card">
       <ul>
-        <li><a href="/daily">Daily</a></li>
-        <li><a href="/weekly">Weekly</a></li>
-        <li><a href="/monthly">Monthly</a></li>
+        <li><a @click="handleClick('daily')">Daily</a></li>
+        <li><a @click="handleClick('weekly')">Weekly</a></li>
+        <li><a @click="handleClick('monthly')">Monthly</a></li>
       </ul>
     </section>
   </article>
@@ -76,6 +91,7 @@ export default {
 .type-report-card ul li a {
   color: var(--Desaturated-blue);
   font-weight: 400;
+  cursor: pointer;
 }
 
 .type-report-card ul li a:hover {
