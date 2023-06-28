@@ -1,5 +1,6 @@
 <script setup>
-import UserProfile from '../components/UserProfile.vue';
+import UserProfile from '../components/UserProfile.vue'
+import CardReport from '../components/CardReport.vue'
 </script>
 
 <template>

@@ -1,10 +1,10 @@
 <script setup>
-import HomeView from './views/HomeView.vue';
+import HomeView from './views/HomeView.vue'
 import './assets/CSS/main.css'
 </script>
 
 <template>
-  <HomeView/>
+  <HomeView />
 </template>
 
 <style>
@@ -12,4 +12,5 @@ import './assets/CSS/main.css'
       background-color: var(--Very-dark-blue);
       color: white;
   }
+
 </style>
