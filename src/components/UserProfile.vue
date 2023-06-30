@@ -1,30 +1,26 @@
-<script>
-import { ref } from 'vue';
+<script setup>
+import { ref } from 'vue'
+import { CalendarOptions, DefaultPeriodTime } from '../config/reports.config'
 
-export default {
-  props: {
-    name: {
-      type: String,
-      required: true
-    },
-    picture: {
-      type: String,
-      required: true
-    },
+const { DAILY, MONTHLY, WEEKLY } = CalendarOptions
+
+defineProps({
+  name: {
+    type: String,
+    required: true
   },
-  setup(props, context) {
-    const reportType = ref('');
-
-    const handleClick = (type) => {
-      reportType.value = type;
-      context.emit('report-click', type);
-    };
-
-    return {
-      reportType,
-      handleClick
-    };
+  picture: {
+    type: String,
+    required: true
   }
+})
+
+const emit = defineEmits(['onReportChange'])
+const reportType = ref(DefaultPeriodTime)
+
+const handleClick = (type) => {
+  reportType.value = type
+  emit('onReportChange', type)
 }
 </script>
 
@@ -39,9 +35,33 @@ export default {
     </section>
     <section class="type-report-card">
       <ul>
-        <li><a @click="handleClick('daily')">Daily</a></li>
-        <li><a @click="handleClick('weekly')">Weekly</a></li>
-        <li><a @click="handleClick('monthly')">Monthly</a></li>
+        <li>
+          <a
+            :class="{
+              active: reportType === DAILY
+            }"
+            @click="handleClick(DAILY)"
+            >Daily</a
+          >
+        </li>
+        <li>
+          <a
+            :class="{
+              active: reportType === WEEKLY
+            }"
+            @click="handleClick(WEEKLY)"
+            >Weekly</a
+          >
+        </li>
+        <li>
+          <a
+            :class="{
+              active: reportType === MONTHLY
+            }"
+            @click="handleClick(MONTHLY)"
+            >Monthly</a
+          >
+        </li>
       </ul>
     </section>
   </article>
@@ -92,6 +112,11 @@ export default {
   color: var(--Desaturated-blue);
   font-weight: 400;
   cursor: pointer;
+}
+
+.type-report-card ul li a.active {
+  color: white;
+  font-weight: 700;
 }
 
 .type-report-card ul li a:hover {
