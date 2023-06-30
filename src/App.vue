@@ -8,9 +8,8 @@ import './assets/CSS/main.css'
 </template>
 
 <style>
-  body{
-      background-color: var(--Very-dark-blue);
-      color: white;
-  }
-
+body {
+  background-color: var(--Very-dark-blue);
+  color: white;
+}
 </style>
